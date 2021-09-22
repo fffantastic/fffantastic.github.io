@@ -50,7 +50,8 @@ parts.addEventListener("change", (e) => {
 });
 
 // 이미지를 클릭하면 컴포지션 구조 표시
-imgs.addEventListener("click", (e) => {
+imgs.addEventListener("pointerdown", (e) => {
+    alert(e.pressure);
     if (e.target!= imgs){
         replacecImg(edu, e.target);
     }
