@@ -137,7 +137,7 @@ function imgListUp(arr, pos, pos2, groupClass, itemClass) {
         pos.insertAdjacentHTML("beforeend", imgDiv);
 
         const preLoad =
-        `<div style="background-image:url('${v.decodeImg}');"></div>`
+        `<img src="${v.decodeImg}"/>`
         pos2.insertAdjacentHTML("beforeend", preLoad);
     });
 }
