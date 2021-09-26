@@ -167,5 +167,15 @@ edu = [
         "name": "전체 구성",
         "img": "edu/comp-standard.png",
         "decodeImg": "edu/comp-standard-1.png"
+    },
+        {
+        "part": "스탠더드 구성",
+        "id": 1000016,
+        "role": 2,
+        "name": "밸런스",
+        "color" : "comp-bal",
+        "explain": "화지 중심을 기준으로 주제 영역과 배경 영역 사이의 균형을 맞춰봅시다.",
+        "img": "edu/balance.png",
+        "decodeImg": []
     }
 ]
