@@ -436,7 +436,7 @@ hr{
 .icons{
   width: 30px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 50%;
 }
 .items-align-center{
   align-items: center;
