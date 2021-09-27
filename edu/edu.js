@@ -12,14 +12,14 @@ const parts = document.getElementById("selec--tion"),
     partName = new Set(edu.map(d=> d.part)),//셀렉트에 붙여질 목록 중복제거
     partList = Array.from(partName);
 
-let constraints = { video: { facingMode: "user"}, audio: false};
-const cameraView = document.querySelector("#camera--view");
 
-function cameraStart(){
+let constraints = { video: { facingMode: "user"}, audio: false};
+
+function cameraStart(pos){
     navigator.mediaDevices.getUserMedia(constraints)
         .then(function(stream){
             track = stream.getTracks()[0];
-            cameraView.srcObject = stream;
+            pos.srcObject = stream;
 
         })
         .catch(function(error){
@@ -163,19 +163,20 @@ cam.addEventListener("click", (e) => {
     modalBack.classList.add("comp-bal");
     const camDiv =
     `<div class="camera--set">
-    <span class="modal-close">×</span></br>
-
-    <div id="camera">
+    <div class="modal-close">×</div>
     <video id="camera--view" autoplay palysinline></video>
-    </div>
-
     <div class="overlapping"></div>
-    <div class="overlapping blend"></div>
-
-    </div>`;    
+    <div class="overlapping blend"></div></div>`;    
     camArea.insertAdjacentHTML("beforeend", camDiv);
+    const cameraView = document.querySelector("#camera--view");
+
     console.log("test");
-    cameraStart();
+    if(document.readyState === 'complete'){
+        console.log(1);
+        cameraStart(cameraView);
+
+    }
+
 });
 
 // 모달창 닫기
