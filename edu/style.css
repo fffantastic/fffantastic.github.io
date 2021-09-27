@@ -463,6 +463,7 @@ hr{
   padding: 10px;
   border-bottom: solid thin rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .tab-s{
   border-bottom: solid thin #000;
