@@ -12,7 +12,6 @@ const parts = document.getElementById("selec--tion"),
     partName = new Set(edu.map(d=> d.part)),//셀렉트에 붙여질 목록 중복제거
     partList = Array.from(partName);
 
-
 let constraints = { video: { facingMode: "user"}, audio: false};
 const cameraView = document.querySelector("#camera--view");
 
