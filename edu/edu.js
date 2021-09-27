@@ -175,6 +175,7 @@ cam.addEventListener("click", (e) => {
 
     </div>`;    
     camArea.insertAdjacentHTML("beforeend", camDiv);
+    console.log("test");
     cameraStart();
 });
 
