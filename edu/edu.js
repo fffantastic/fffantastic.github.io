@@ -13,7 +13,7 @@ const parts = document.getElementById("selec--tion"),
     partList = Array.from(partName);
 
 
-let constraints = { video: { facingMode: "user"}, audio: false};
+let constraints = { audio: false, video: { facingMode: { exact: "environment" } } };
 
 function cameraStart(pos){
     navigator.mediaDevices.getUserMedia(constraints)
