@@ -482,7 +482,7 @@ hr{
 .camera-view{
   width: 91%;
   padding-top: 128%;
-  background-image: url(img/edu/standard-b-01-4.png);
+  background-image: url(edu/standard-b-01-4.png);
   filter: grayscale(100%) contrast(140%);
   background-size: cover;
   background-repeat: no-repeat;
@@ -494,7 +494,7 @@ hr{
 .overlapping{
   width: 91%;
   padding-top: 128%;
-  background-image: url(img/edu/comp-standard11.png);
+  background-image: url(edu/comp-standard11.png);
   filter: saturate(140%);
   background-size: cover;
   background-repeat: no-repeat;
