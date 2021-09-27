@@ -13,11 +13,8 @@ const parts = document.getElementById("selec--tion"),
     partList = Array.from(partName);
 
 
-    let constraints = { video: { facingMode: "user"}, audio: false};
-        const cameraView = document.querySelector("#camera--view");
-        const cameraOutput = document.querySelector("#camera--output");
-        const cameraSensor = document.querySelector("#camera--sensor");
-        const cameraTrigger = document.querySelector("#camera--trigger");
+let constraints = { video: { facingMode: "user"}, audio: false};
+const cameraView = document.querySelector("#camera--view");
 
 function cameraStart(){
     navigator.mediaDevices.getUserMedia(constraints)
@@ -162,7 +159,6 @@ function docDirection(sel, themeNum){
 
 //카메라
 cam.addEventListener("click", (e) => {
-    cameraStart();
     body.classList.add("of-hidden");
     modalBack.classList.toggle("view");
     modalBack.classList.add("comp-bal");
@@ -171,9 +167,7 @@ cam.addEventListener("click", (e) => {
     <span class="modal-close">×</span></br>
 
     <div id="camera">
-    <canvas id="camera--sensor"></canvas>
     <video id="camera--view" autoplay palysinline></video>
-    <img src="//:0" alt"" id="camera--output">
     </div>
 
     <div class="overlapping"></div>
@@ -181,6 +175,7 @@ cam.addEventListener("click", (e) => {
 
     </div>`;    
     camArea.insertAdjacentHTML("beforeend", camDiv);
+    cameraStart();
 });
 
 // 모달창 닫기
