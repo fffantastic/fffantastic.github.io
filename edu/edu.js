@@ -24,7 +24,7 @@ function cameraStart(){
 
         })
         .catch(function(error){
-            console.error("카메라에 문제가 있습니다.", error);
+            console.log(error.name+":"+error.message);
             alert("카메라를 사용할 수 없습니다.");
         })
 }
