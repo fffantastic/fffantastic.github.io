@@ -1,465 +1,201 @@
-@font-face {
-  src: url("font/BMHANNAAir_otf.otf");
-  font-family: BM HANNA Air OTF;
-}
-@font-face {
-  src: url("font/NanumSquareOTFLight.otf");
-  font-family: NanumSquareOTF;
-}
-body{
-  margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
-}
-div {
-  box-sizing: border-box;
-}
-button{
-  all: unset;
-}
-.modalBack{  
-  width: 100%;
-  height: 100%;
-  padding: 5%;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  z-index: 10;
-}
-.modal{
-  background-color:rgba(0, 0, 0, 0);
-  width: 0%;
-  height: 100%;
-  padding-left: 72%;
-  border: none;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 11;
-}
-.sel{
-    font-family: NanumSquareOTF;
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 40px;
-    line-height: 43px;
-
-    width: 100%;
-    height: 60px;
-    padding: 7px 8px 6px 7px/9;
-
-    color: #000;
-    border: none;
-    border-radius: none;
-    *height: auto;
-    -webkit-appearance: none;
-
-    outline: 0;
-    text-decoration: none;
-    cursor: pointer;
-    -webkit-text-size-adjust: none;
-}
-.box{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-.btwn{
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.tags{
-  flex-basis: 450px;
-}
-hr{
-  border: none;
-  background-color: #696969;
-  height: 1px;
-  margin: 10px;
-}
-.fontF{
-  font-family: BM HANNA Air OTF;
-  font-style: normal;
-  font-weight: normal;
-}
-.tag{
-  font-size: 25px;
-  line-height: 26px;
-  text-align: center;
-  color: #FFFFFF;
-  padding: 4px 15px;
-  margin: 10px 2px;
-  background: #000;
-  border-radius: 100px;
-}
-.pics{
-  flex-basis: 60%;
-  flex-grow: 1;
-}
-.item{
-  flex-basis: 200px;
-  flex-grow: 1;
-  margin: 10px;
-}
-.img{
-  height: 0;
-  padding-top: 72%;
-  border: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 5px;
-  margin: 0;
-  cursor: pointer;
-}
-.imgborder{
-  border: solid 1px #b9b9b9;
-}
-.desc{
-  background: #fff;
-  border: solid 1px #b9b9b9;
-  color: #9e9e9e;
-  font-size: 15px;
-  line-height: 16px;
-  margin: 5px 0px;
-}
-.nums{
-  background: #e4e4e4;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  padding: 10px;
-  margin: 5px;
-  cursor: default;
-  position: relative;
-}
-.score{
-  display: flex;
-  height: 60px;
-  justify-content: center;
-  align-items: center;
-  color: #fff
-}
-.header{
-  font-family: NanumSquareOTF;
-  font-size: 12px;
-  line-height: 13px;
-}
-.data{
-  font-size: 35px;
-}
-.view{
-  display: none;
-}
-.close{
-  color: #fff;
-  font-size: 60px;
-  float: right;
-  cursor: pointer;
-}
-.modal-close{
-  color: #fff;
-  font-size: 60px;
-  float: center;
-  cursor: pointer;
-}
-.zero{
-  background-color: #e4e4e4;
-}
-.low{
-  background-color: #feb326;
-}
-.middle{
-  background-color: #38bfa7;
-}
-.high{
-  background-color: #54cefe;
-}
-.master{
-  background-color: #7f58af;
-}
-.grey{
-  background-color: #9e9e9e;
-}
-.standard{
-  width: 200px;
-  height: 200px;
-  border: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 40%;
-  margin: 10px;
-  margin-bottom: 20px;
-}
-.standards{
-  background-color: rgb(136, 136, 136);
-  width: 900px;
-  position: absolute;
-  border-radius: 100px;
-  top: 100px;
-  justify-content: center;
-  z-index: 1;
-}
-.rating{
-  color: #fff;
-  font-size: 16px;
-  line-height: 17px;
-  margin-top: 10px;
-}
-.point-cursor{
-  cursor: pointer;
-}
-.univInfo {
-  margin: auto;
-  width: 95%;
-  padding: 5px;
-  border-top: 1px solid #d2d2d7;
-}
-.univ-name {
-  font-size: 40px;
-  align-items: center;
-}
-.univDepart{
-  flex-basis: 20%;
-}
-.univScore{
-  flex-basis: 30%;
-}
-.month{
-  flex-basis: 100px;
-  padding-left: 10px;
-}
-.numeral{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  padding: 10px;
-  margin: 5px;
-  cursor: default;
-  align-content: center;
-}
-.align-center{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  width: 30%;
-}
-.fixed{
-  width: 400px;
-  position: fixed;
-  bottom: 10%;
-}
-.deselect{
-  background-color: #afafaf;
-}
-.select{
-  background-color: #54cefe;
-}
-.select-box{
-  font-family: NanumSquareOTF;
-  font-style: normal;
-  font-weight: lighter;
-  font-size: 23px;
-  line-height: 24px;
-
-  width: 70%;
-  height: 50px;
-
-  color: #000;
-  border: none;
-  border-radius: 25px;
-  *height: auto;
-  -webkit-appearance: none;
-
-  outline: 0;
-  text-decoration: none;
-  cursor: pointer;
-  -webkit-text-size-adjust: none;
-
-  background: rgba(0, 0, 0, 0.06);
-  /* background-color: #eeeeee; */
-  padding: 0 20px;
-}
-.logo{
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-}
-.top{
-  height: 10px;
-}
-.edu-pics{
-  flex-basis: 400px;
-  flex-grow: 1;
-  margin: 10px;
-}
-.edu-pic{
-  height: 0;
-  padding-top: 72%;
-  border: solid 1px #b9b9b9;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 10px;
-  margin: 0;
-  cursor: pointer;
-}
-.box-pics{
-  width: 96%;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.subtitle{
-  width: 70%;
-  padding: 30px 0px 15px 0px;
-  font-size: 20px;
-  color: #fff;
-  margin: auto;
-}
-.edu-btn{
-  font-size: 14px;
-  line-height: normal;
-  text-align: center;
-  color: #FFFFFF;
-  padding: 4px 10px;
-  margin: 2px 2px;
-  border-radius: 100px;
-}
-.comp-close{
-  background-color: #00A99D;
-}
-.comp-main{
-  background-color: #F04E23;
-}
-.comp-point{
-  background-color: #ffbc02;
-}
-.comp-bottom{
-  background-color: #903F98;
-}
-.comp-top{
-  background-color: #0072BC;
-}
-.comp-middle{
-  background-color: #B8887B;
-}
-.comp-distant{
-  background-color: #95B6DF;
-}
-.comp-far{
-  background-color: #BCBEC0;
-}
-.comp-bal{
-  background-color: #252525;
-}
-.edu-modal-back{  
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  padding: 4%;
-  position: fixed;
-}
-.edu-modal{
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  border: none;
-
-  overflow-y: scroll;
-}
-.edu-modal::-webkit-scrollbar { 
-  display: none; 
-}
-.text-head{
-  font-size: 24px;
-  text-align: left;
-  color: #fff;
-  padding:4px;
-  border-bottom-width: thin;
-  border-bottom-color: #fff;
-  border-bottom-style: dashed;
-}
-.text-explain{
-  font-size: 20px;
-  border-bottom-style: none;
-}
-.modal-img{
-  width: 100%;
-  margin: 5px 0px;
-  border-radius: 5px;
-}
-.exp-pic{
-  width: 30%;
-  flex-basis: 30%;
-  flex-grow: 1;
-  margin: 4px;
-  border-radius: 5px;
-}
-.not-scroll{
-  overflow: hidden;
-}
-.bottom{
-  padding-bottom: 20px;
-}
-.exp-pic-big{
-  height: 0;
-  padding-top: 72%;
-  border: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 5px;
-  margin: 4px;
-}
-.box-nav{
-  width: 96%;
-  margin: 6px auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 5px;
-}
-.border1{
-  border: solid 1px #b9b9b9;
-}
-.icons{
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-.items-align-center{
-  align-items: center;
-}
-.footer{
-  width: 250px;
-  margin: 10px;
-}
-.align-top{
-  align-items: flex-start;
-}
-.hrzt-center{
-  justify-content: center;
-  margin: auto;
-}
-.entrance{
-  width: 100%;
-  height: 700px;
-  background-image: url(cover10.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+edu = [
+    {
+        "part": "스탠더드 구성",
+        "id": 100001,
+        "role": 0,
+        "name": "전시훈",
+        "img": "edu/standard-01-0.png",
+        "decodeImg": "edu/standard-01-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 100002,
+        "role": 0,
+        "name": "손현지",
+        "img": "edu/standard-02-0.png",
+        "decodeImg": "edu/standard-02-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 100003,
+        "role": 0,
+        "name": "김기예",
+        "img": "edu/standard-03-0.png",
+        "decodeImg": "edu/standard-03-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 100004,
+        "role": 0,
+        "name": "전재연",
+        "img": "edu/standard-04-0.png",
+        "decodeImg": "edu/standard-04-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 100005,
+        "role": 1,
+        "name": "이종수",
+        "img": "edu/standard-b-01-0.png",
+        "decodeImg": "edu/standard-b-01-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 100006,
+        "role": 1,
+        "name": "이종수",
+        "img": "edu/standard-b-02-0.png",
+        "decodeImg": "edu/standard-b-02-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 100007,
+        "role": 2,
+        "name": "근거리",
+        "color" : "comp-close",
+        "explain": "화면에 공간감을 더욱 깊게 연출하기 위한 요소, 상황에 따라 주제 뒤에 배치 가능합니다.",
+        "img": "edu/comp-close-0.png",
+        "decodeImg": [
+            "edu/comp-close-1.png",
+            "edu/comp-close-2.png",
+            "edu/comp-close-3.png",
+            "edu/comp-close-4.png",
+            "edu/comp-close-5.png",
+            "edu/comp-close-6.png"]
+    },    
+    {
+        "part": "스탠더드 구성",
+        "id": 100008,
+        "role": 2,
+        "name": "주제",
+        "color" : "comp-main",
+        "explain": "제시물의 특징을 집중적으로 연출하는 영역",
+        "img": "edu/comp-main-0.png",
+        "decodeImg": [
+            "edu/comp-main-1.png",
+            "edu/comp-main-2.png",
+            "edu/comp-main-3.png",
+            "edu/comp-main-4.png",
+            "edu/comp-main-5.png",
+            "edu/comp-main-6.png"
+        ]
+    },    
+    {
+        "part": "스탠더드 구성",
+        "id": 100009,
+        "role": 2,
+        "name": "딸랑이",
+        "color" : "comp-point",
+        "explain": "주제를 더욱 강조하는 요소",
+        "img": "edu/comp-point-0.png",
+        "decodeImg": []
+    },    {
+        "part": "스탠더드 구성",
+        "id": 1000010,
+        "role": 2,
+        "name": "바닥",
+        "color" : "comp-bottom",
+        "explain": "주제와의 상호작용을 통한 연출을 보조, 주제의 크기에 따라 상대적으로 바닥의 면적을 조절합니다.",
+        "img": "edu/comp-bottom-0.png",
+        "decodeImg": [
+            "edu/comp-bottom-1.png",
+            "edu/comp-bottom-2.png",
+            "edu/comp-bottom-3.png",
+            "edu/comp-bottom-4.png",
+            "edu/comp-bottom-5.png",
+            "edu/comp-bottom-6.png"
+        ]
+    },    
+    {
+        "part": "스탠더드 구성",
+        "id": 1000011,
+        "role": 2,
+        "name": "천장",
+        "color" : "comp-top",
+        "explain": "주제와 배경을 연결하는 요소, 오른쪽 또는 왼쪽 방향으로 길게 표현합니다.",
+        "img": "edu/comp-top-0.png",
+        "decodeImg": [
+            "edu/comp-top-1.png",
+            "edu/comp-top-2.png",
+            "edu/comp-top-3.png",
+            "edu/comp-top-4.png",
+            "edu/comp-top-5.png",
+            "edu/comp-top-6.png"
+        ]
+    },    
+    {
+        "part": "스탠더드 구성",
+        "id": 1000012,
+        "role": 2,
+        "name": "B 포인트",
+        "color" : "comp-middle",
+        "explain": "근거리 -> 바닥 -> B 포인트 - 왼쪽 배경으로 연결되는 공간감을 쉽게 드러내는 요소, 3절 기준 손바닥만 한 면적을 차지합니다.",
+        "img": "edu/comp-middle-0.png",
+        "decodeImg": [
+            "edu/comp-middle-1.png",
+            "edu/comp-middle-2.png",
+            "edu/comp-middle-3.png",
+            "edu/comp-middle-4.png",
+            "edu/comp-middle-5.png",
+            "edu/comp-middle-6.png"
+        ]
+    },    
+    {
+        "part": "스탠더드 구성",
+        "id": 1000013,
+        "role": 2,
+        "name": "오른쪽 배경",
+        "color" : "comp-distant",
+        "explain": "주제 주변의 여백을 쉽게 채울 수 있도록 평면 형태로 표현합니다. ",
+        "img": "edu/comp-distant-0.png",
+        "decodeImg": []
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 1000014,
+        "role": 2,
+        "name": "왼쪽 배경",
+        "color" : "comp-far",
+        "explain": "근거리 -> 바닥 -> B 포인트 - 왼쪽 배경으로 연결되는 공간에서 가장 끝에 있는 요소, 가벼운 양감과 색연필을 이용한 선으로 마감합니다.",
+        "img": "edu/comp-far-0.png",
+        "decodeImg": []
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 1000015,
+        "role": 3,
+        "name": "전체 구성",
+        "img": "edu/comp-standard.png",
+        "decodeImg": "edu/comp-standard-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
+        "id": 1000016,
+        "role": 2,
+        "name": "밸런스",
+        "color" : "comp-bal",
+        "explain": "화지 중심을 기준으로 주제 영역과 배경 영역 사이의 균형을 맞춰봅시다.",
+        "img": "edu/balance.png",
+        "decodeImg": []
+    },
+    {
+        "part": "주제 연출",
+        "id": 1000017,
+        "role": 4,
+        "name": "조형성",
+        "themeNum" : 0,
+        "explain": "기능이 약하거나, 소재 간의 힘(무게) 차이가 뚜렷하지 않을 경우 조형성에 포커스를 맞춰 주제를 연출합니다.",
+        "img": "edu/balance.png",
+        "decodeImg": []
+    },
+    {
+        "part": "주제 연출",
+        "id": 1000017,
+        "role": 4,
+        "name": "상호작용",
+        "themeNum" : 1,
+        "explain": "물체의 기능을 활용하거나, 사물 간의 힘의 차이를 이용한 연출 방법입니다.",
+        "img": "edu/balance.png",
+        "decodeImg": []
+    },
+]
