@@ -166,8 +166,9 @@ hr{
 .modal-close{
   color: #fff;
   font-size: 60px;
-  float: center;
+  position: fixed;
   cursor: pointer;
+  margin: auto;
 }
 .zero{
   background-color: #e4e4e4;
