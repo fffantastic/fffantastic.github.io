@@ -501,7 +501,6 @@ hr{
   z-index: 22;
 }
 #camera--view{
-  filter: grayscale(100%) contrast(140%);
   position: fixed;
   width: 100%;
   height: 100%;
