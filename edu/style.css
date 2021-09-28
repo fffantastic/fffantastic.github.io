@@ -168,7 +168,7 @@ hr{
   font-size: 60px;
   position: fixed;
   cursor: pointer;
-  margin: auto;
+  z-index: 22;
 }
 .zero{
   background-color: #e4e4e4;
