@@ -481,25 +481,6 @@ hr{
 .directions{
   padding: 10px;
 }
-.overlapping{
-  width: 91%;
-  padding-top: 128%;
-  background-image: url(comp-standard11.png);
-  filter: saturate(140%);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  mix-blend-mode: multiply;
-  opacity: 0.7;
-  position: fixed;
-  z-index: 20;
-  margin: auto;
-}
-.blend{
-  mix-blend-mode: hard-light;
-  opacity: 0.5;
-  z-index: 22;
-}
 #camera--view{
   position: fixed;
   width: 100%;
