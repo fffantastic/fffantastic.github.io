@@ -164,7 +164,7 @@ cam.addEventListener("click", (e) => {
     const camDiv =
     `<div class="camera--set">
     <div class="modal-close">×</div>
-    <video id="camera--view" autoplay palysinline></video>
+    <video id="camera--view" autoplay playsinline></video>
     <div class="overlapping"></div>
     <div class="overlapping blend"></div></div>`;    
     camArea.insertAdjacentHTML("beforeend", camDiv);
