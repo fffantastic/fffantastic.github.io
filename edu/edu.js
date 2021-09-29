@@ -152,12 +152,13 @@ cam.addEventListener("click", (e) => {
     modalBack.classList.toggle("view");
     modalBack.classList.add("comp-bal");
     const camDiv =
-    `<div class="camera--set">
-
+    `<div class="camera--set of-hidden">
+    <div class="camera-close">×</div>
     <video id="camera--view" autoplay playsinline></video>
     <div class="overlapping"></div>
-    <div class="overlapping blend"></div></div>
-    <div class="camera-close">×</div>`;    
+    <div class="overlapping blend"></div>
+    <div class="camera-back"></div>
+    </div>`;
     camArea.insertAdjacentHTML("beforeend", camDiv);
     const cameraView = document.querySelector("#camera--view");
 
