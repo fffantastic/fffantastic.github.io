@@ -173,6 +173,7 @@ hr{
   font-size: 60px;
   position: fixed;
   cursor: pointer;
+  z-index: 18;
 }
 .zero{
   background-color: #e4e4e4;
@@ -512,4 +513,13 @@ hr{
   left: 0px;
   top: 0px;
   object-fit: cover;
+}
+.camera-back{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 15;
 }
