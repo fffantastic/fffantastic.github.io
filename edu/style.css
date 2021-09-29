@@ -83,20 +83,20 @@ hr{
   height: 1px;
   margin: 10px;
 }
-.fontF{
-  font-family: BM HANNA Air OTF;
-  font-style: normal;
-  font-weight: normal;
+.whiteHr{
+  border: none;
+  background-color: #fff;
+  height: 1px;
+  margin: 4px;
 }
 .tag{
   font-size: 25px;
-  line-height: 26px;
   text-align: center;
   color: #FFFFFF;
   padding: 4px 15px;
   margin: 10px 2px;
   background: #000;
-  border-radius: 100px;
+  border-radius: 20px;
 }
 .pics{
   flex-basis: 60%;
@@ -299,6 +299,7 @@ hr{
   width: 49px;
   height: 49px;
   border-radius: 50%;
+  background-color: #54cefe;
 }
 .top{
   height: 10px;
@@ -388,13 +389,6 @@ hr{
   text-align: left;
   color: #fff;
   padding:4px;
-  border-bottom-width: thin;
-  border-bottom-color: #fff;
-  border-bottom-style: dashed;
-}
-.text-explain{
-  font-size: 20px;
-  border-bottom-style: none;
 }
 .modal-img{
   width: 100%;
@@ -472,7 +466,7 @@ hr{
   cursor: pointer;
 }
 .tab-s{
-  border-bottom: solid thin #000;
+  border-bottom: solid 2px #000;
   color: #000;
 }
 .entrance2{
@@ -488,25 +482,20 @@ hr{
 }
 .overlapping{
   width: 91%;
-  padding-top: 128%;
+  padding-top: 122%;
   top: 100px;
-  background-image: url(comp-standard11.png);
-  filter: saturate(140%);
+  background-image: url(img/edu/comp-standard11.png);
+  filter: saturate(80%);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  mix-blend-mode: multiply;
-  opacity: 0.7;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
   position: fixed;
   z-index: 20;
 }
-.blend{
-  mix-blend-mode: hard-light;
-  opacity: 0.5;
-  z-index: 22;
-}
 #camera--view{
-  filter: grayscale(100%) contrast(140%);
+  filter: grayscale(100%) brightness(130%) contrast(120%);
   position: fixed;
   width: 100%;
   height: 100%;
@@ -520,6 +509,19 @@ hr{
   height: 100%;
   left: 0px;
   top: 0px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 15;
+  mix-blend-mode: multiply;
+}
+.fontN{
+  font-family: NanumSquareOTF;
+}
+.fontH{
+  font-family: BM HANNA Air OTF;
+}
+.font16{
+  font-size: 16px;
+}
+.textM{
+  padding: 0px 20px;
 }
