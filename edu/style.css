@@ -166,9 +166,13 @@ hr{
 .modal-close{
   color: #fff;
   font-size: 60px;
+  cursor: pointer;
+}
+.camera-close{
+  color: #fff;
+  font-size: 60px;
   position: fixed;
   cursor: pointer;
-  z-index: 22;
 }
 .zero{
   background-color: #e4e4e4;
