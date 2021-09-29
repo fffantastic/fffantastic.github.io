@@ -13,7 +13,7 @@ const parts = document.getElementById("selec--tion"),
     partList = Array.from(partName);
 
 
-let constraints = { video: { facingMode: "user"}, audio: false};
+let constraints = { audio: false, video: { facingMode: { exact: "environment" } } };
 
 
 // 셀렉트에 목록 출력
