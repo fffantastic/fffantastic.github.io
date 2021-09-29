@@ -13,20 +13,8 @@ const parts = document.getElementById("selec--tion"),
     partList = Array.from(partName);
 
 
-let constraints = { audio: false, video: { facingMode: { exact: "environment" } } };
+let constraints = { video: { facingMode: "user"}, audio: false};
 
-function cameraStart(pos){
-    navigator.mediaDevices.getUserMedia(constraints)
-        .then(function(stream){
-            track = stream.getTracks()[0];
-            pos.srcObject = stream;
-
-        })
-        .catch(function(error){
-            console.log(error.name+":"+error.message);
-            alert("카메라를 사용할 수 없습니다.");
-        })
-}
 
 // 셀렉트에 목록 출력
 partList.forEach(v => {
@@ -39,6 +27,7 @@ parts.addEventListener("change", (e) => {
     let selectedValue = e.target.value;
     // 담긴 내용을 확인하고, 중복을 제외해 리스트로 만들기 
     deleteTags(".directions");
+    deleteTags(".pre--load");
     deleteTags(".edu-pics");
     deleteTags(".subject");
     body.classList.remove("entrance");
@@ -132,6 +121,7 @@ subTitle.addEventListener("click", (e) =>{
     } 
 });
 
+// 주제연출 내용 생성
 function docDirection(sel, themeNum){
     deleteTags(".directions");
     if (themeNum == 0){
@@ -156,27 +146,25 @@ function docDirection(sel, themeNum){
 }
 
 
-//카메라
+//카메라 화면 내용
 cam.addEventListener("click", (e) => {
     body.classList.add("of-hidden");
     modalBack.classList.toggle("view");
     modalBack.classList.add("comp-bal");
     const camDiv =
     `<div class="camera--set">
-    <div class="modal-close">×</div>
+
     <video id="camera--view" autoplay playsinline></video>
     <div class="overlapping"></div>
-    <div class="overlapping blend"></div></div>`;    
+    <div class="overlapping blend"></div></div>
+    <div class="camera-close">×</div>`;    
     camArea.insertAdjacentHTML("beforeend", camDiv);
     const cameraView = document.querySelector("#camera--view");
 
     console.log("test");
     if(document.readyState === 'complete'){
-        console.log(1);
         cameraStart(cameraView);
-
     }
-
 });
 
 // 모달창 닫기
@@ -184,6 +172,7 @@ modalBack.addEventListener("click",() => {
     deleteTags(".camera--set");
     deleteTags(".edu-explain");
     deleteTags(".exp-pic");
+    deleteTags(".modal-close");
     modalBack.classList.toggle("view");
     body.classList.remove("of-hidden");
 });
@@ -217,7 +206,7 @@ function imgListUp(arr, pos, pos2, groupClass, itemClass) {
         pos.insertAdjacentHTML("beforeend", imgDiv);
 
         const preLoad =
-        `<img src="${v.decodeImg}"/>`
+        `<img class="pre--load" src="${v.decodeImg}"/>`
         pos2.insertAdjacentHTML("beforeend", preLoad);
     });
 }
@@ -231,6 +220,7 @@ function createBtn(arr, pos, className) {
         pos.insertAdjacentHTML("beforeend", btnDiv);
     });
 }
+// 탭 생성
 function createTab(arr,pos, className) {
     arr.forEach( v => {
         const tabDiv =
@@ -248,3 +238,16 @@ function deleteTags(tags) {
     }
 }
 
+// 카메라 화면 출력
+function cameraStart(pos){
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(stream){
+            track = stream.getTracks()[0];
+            pos.srcObject = stream;
+
+        })
+        .catch(function(error){
+            console.log(error.name+":"+error.message);
+            alert("카메라를 사용할 수 없습니다.");
+        })
+}
