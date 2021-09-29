@@ -485,7 +485,7 @@ hr{
   width: 91%;
   padding-top: 128%;
   top: 100px;
-  background-image: url(img/edu/comp-standard11.png);
+  background-image: url(comp-standard11.png);
   filter: saturate(140%);
   background-size: cover;
   background-repeat: no-repeat;
