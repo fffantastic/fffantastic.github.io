@@ -22,38 +22,46 @@ partList.forEach(v => {
     parts.insertAdjacentHTML("beforeend", option);
 });
 
-// 셀렉트 박스에서 항목을 선택할 때마다
+// 이미지를 클릭하면 세부 내용표시
+imgs.addEventListener("click", (e) => {
+    if (e.target!= imgs){
+        const selRole = edu.filter(d => d.role == e.target.dataset.role);
+        replacecImg(selRole[0], e.target);
+    }
+}); 
+
+
+// 셀렉트 박스 선택에 따라 컨텐츠 변경
 parts.addEventListener("change", (e) => {
     let selectedValue = e.target.value;
-    // 담긴 내용을 확인하고, 중복을 제외해 리스트로 만들기 
     deleteTags(".directions");
-    deleteTags(".pre--load");
     deleteTags(".edu-pics");
-    deleteTags(".subject");
+    deleteTags(".sub--ject");
     body.classList.remove("entrance");
 
     switch (selectedValue) {
         case partList[0]:
 
-            // 스탠다드 구성 수업작
-            let comp = edu.filter(d => d.part == selectedValue && d.role == 0);
-            // 보충이 필요한 수업작
-            let comp2 = edu.filter(d =>d.part == selectedValue && d.role == 1);
-            // 스탠다드 구성 설명 데이터
+            // 서브타이틀 - 스탠다드 구성 설명 데이터
             let subTitleGroup = edu.filter(d =>d.part == selectedValue && d.role == 2);
-            
             // 서브타이틀 버튼 생성 (배열, 위치, 클래스)
-            createBtn(subTitleGroup, subTitle, "subject edu-btn");
-            // 이미지배열, 위치, 캐시위치, 그룹클래스, 개별클래스
-            imgListUp(comp, imgs, imgCache, "edu-pics", "edu-pic");
+            createBtn(subTitleGroup, subTitle, "sub--ject edu-btn");
+
+            // 수업작 이미지 
+            const comp = edu.filter(d => d.part == selectedValue && d.role == 0);
+            imgListUp(0, comp[0].img, imgs);
+            imgPreLoad(comp[0].decodeImg, imgCache)
             break;
         
         case partList[1]:
-            //조형성과 상호작용            
+            //주제 연출          
             const direction = edu.filter(d => d.part == selectedValue);
-            createTab(direction, subTitle, "subject tab-ds")
+            createTab(direction, subTitle, "sub--ject tab-ds font16")
             const tabs = document.querySelectorAll(".tab-ds");
-            docDirection(tabs[0],0);
+
+            // 주제연출 부분에서 조형성부터 노출
+            const filteredTheme = edu.filter(d => d.themeNum == 0);
+            constentDirection(tabs[0], 0, filteredTheme[0]);
             break;
 
         default :
@@ -62,14 +70,7 @@ parts.addEventListener("change", (e) => {
     }
 });
 
-// 이미지를 클릭하면 컴포지션 구조 표시
-imgs.addEventListener("click", (e) => {
-    if (e.target!= imgs){
-        replacecImg(edu, e.target);
-    }
-}); 
-
-// 서브타이틀 세부 내용 표시
+// 선택한 버튼,탭에 따라 세부 컨텐츠 출력
 subTitle.addEventListener("click", (e) =>{
     selectedValue = parts.options[parts.selectedIndex].value;
 
@@ -80,72 +81,102 @@ subTitle.addEventListener("click", (e) =>{
         // 누른 버튼이 어디 파트에 속했냐에 따라 다른 내용 출력
         switch (selectedValue) {
             case partList[0]:// 서브타이틀 버튼 누르면 모달창 띄우고 내용 출력
-                
                 body.classList.add("of-hidden");
-                // 구성 자료 필터링
-                const comp = edu.filter(d => d.id == selected.dataset.id);
-                // 클래스명(배경색) 모아 배열로 만들기
-                const data = edu.filter(d => d.part == selected.dataset.part);
-                const colorList = data.map(d => d.color);
-                
-                const content =
-                `<div class="edu-explain">
-                <span class="modal-close">×</span>
-                <div class="text-head">${comp[0].name}</div>
-                <div class="text-head text-explain">${comp[0].explain}</div>
-        
-                <div class="exp-pic-big"
-                style="background-image:url('${comp[0].img}"');"></div>
-                </div>`;        
-
-                modalBack.classList.toggle("view");
-                // 모달배경 클래스(배경색) 전부 지우고
-                colorList.forEach(v => modalBack.classList.remove(v) );
-                // 모달배경 색채 클래스(배경색) 1개 추가
-                modalBack.classList.add(comp[0].color);
-                // 모달 주요 내용 출력
-                modal.insertAdjacentHTML("afterbegin", content);
-                // 모달 보조 내용 출력
-                comp[0].decodeImg.forEach(d => {
-                    const imgDiv =
-                    `<img class="exp-pic" src="${d}"/>`;
-                     more.insertAdjacentHTML("beforeend", imgDiv);
-                });
+                contentComposition(selected);
                 break;
+
             case partList[1]:// 서브탭 누르면 내용 변경
-                const tabs = document.querySelectorAll(".tab-ds");
                 const themeNum = selected.dataset.num;
+
+                const tabs = document.querySelectorAll(".tab-ds");
                 tabs.forEach( d=> d.classList.remove("tab-s"));
-                docDirection(selected, themeNum);
+
+                const filteredTheme = edu.filter(d => d.themeNum == themeNum);
+                constentDirection(selected, themeNum, filteredTheme[0]);
         }
     } 
 });
 
+
+
+
+
 // 주제연출 내용 생성
-function docDirection(sel, themeNum){
-    deleteTags(".directions");
+function constentDirection(sel, themeNum, data){
+    // 선택한 탭의 클래스명 토글
     if (themeNum == 0){
         sel.classList.toggle("tab-s")
-
-        formationDiv =
-        `<div class="directions"> 주제 영역에서 사물을 구성할 때, 
-        조형성을 바탕으로 아이디어를 표현해봅시다.
-        </div>`
-        container.insertAdjacentHTML("beforeend", formationDiv);
-
     }else if(themeNum == 1){
         sel.classList.toggle("tab-s")
-
-        interactionDiv =
-        `<div class="directions"> 
-        주제 영역에서 사물을 구성할 때, 
-        상호작용을 바탕으로 아이디어를 표현해봅시다.</div>`
-        container.insertAdjacentHTML("beforeend", interactionDiv);
-
     }
+    // 탭변경시 기존 내용 지우기
+    deleteTags(".directions");
+    deleteTags(".edu-pics");
+
+    // 설명
+    contentsDiv =
+    `<div class="directions"> 
+    <img style="width:250px;" src="${data.defineImg}"/>
+    <br>|<br>
+    <span class ="tag fontH font16">${data.define}</span>
+    <br>
+    |
+    <div class="fontN font16 textM">${data.explain}</div>
+    </div>`;
+    container.insertAdjacentHTML("afterbegin", contentsDiv);
+
+    // 이미지
+    const comp = edu.filter(d => d.themeNum == themeNum && d.role == 4);
+    imgListUp(4, comp[0].img, imgs);
+    imgPreLoad(comp[0].decodeImg, imgCache)
 }
 
 
+function contentComposition(selected){
+    
+    // 구성 자료 필터링
+    const comp = edu.filter(d => d.id == selected.dataset.id);
+    // 클래스명(배경색) 모아 배열로 만들기
+    const data = edu.filter(d => d.part == selected.dataset.part);
+    const colorList = data.map(d => d.color);
+    
+    const content =
+    `<div class="edu-explain">
+    <span class="modal-close">×</span>
+    <div class="text-head fontH">${comp[0].name}</div>
+    <hr class="whiteHr">
+    <div class="text-head fontN font16">${comp[0].explain}</div>
+
+    <div class="exp-pic-big"
+    style="background-image:url('${comp[0].img}"');"></div>
+    </div>`;        
+
+    modalBack.classList.toggle("view");
+    // 모달배경 클래스(배경색) 전부 지우고
+    colorList.forEach(v => modalBack.classList.remove(v) );
+    // 모달배경 색채 클래스(배경색) 1개 추가
+    modalBack.classList.add(comp[0].color);
+    // 모달 주요 내용 출력
+    modal.insertAdjacentHTML("afterbegin", content);
+    // 모달 보조 내용 출력
+    comp[0].decodeImg.forEach(d => {
+        const imgDiv =
+        `<img class="exp-pic" src="${d}"/>`;
+            more.insertAdjacentHTML("beforeend", imgDiv);
+    });
+
+}
+camArea.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const closeBtn = document.querySelector(".camera-close");
+
+    if (e.target == closeBtn){
+        deleteTags(".camera--set");
+        modalBack.classList.toggle("view");
+        body.classList.remove("of-hidden");
+    }
+});
 //카메라 화면 내용
 cam.addEventListener("click", (e) => {
     body.classList.add("of-hidden");
@@ -156,13 +187,13 @@ cam.addEventListener("click", (e) => {
     <div class="camera-close">×</div>
     <video id="camera--view" autoplay playsinline></video>
     <div class="overlapping"></div>
-    <div class="overlapping blend"></div>
+    <div class="overlapping"></div>
     <div class="camera-back"></div>
     </div>`;
+    
     camArea.insertAdjacentHTML("beforeend", camDiv);
     const cameraView = document.querySelector("#camera--view");
-
-    console.log("test");
+    
     if(document.readyState === 'complete'){
         cameraStart(cameraView);
     }
@@ -173,7 +204,6 @@ modalBack.addEventListener("click",() => {
     deleteTags(".camera--set");
     deleteTags(".edu-explain");
     deleteTags(".exp-pic");
-    deleteTags(".modal-close");
     modalBack.classList.toggle("view");
     body.classList.remove("of-hidden");
 });
@@ -182,11 +212,11 @@ modalBack.addEventListener("click",() => {
 // 이미지 바꾸기
 function replacecImg(arr, target) {
     const selectOne = target;
-    const comp = arr.filter(d => d.id == selectOne.dataset.id);
+    const selIndex = selectOne.dataset.index;
     const imgStyle = selectOne.style.backgroundImage;
 
-    const original = `url("${comp[0].img}")`;
-    const replace = `url("${comp[0].decodeImg}")`;
+    const original = `url("${arr.img[selIndex]}")`;
+    const replace = `url("${arr.decodeImg[selIndex]}")`;
 
     switch (imgStyle) {
         case original :
@@ -197,25 +227,31 @@ function replacecImg(arr, target) {
             break;
     }
 }
-// 이미지 생성
-function imgListUp(arr, pos, pos2, groupClass, itemClass) {
-    arr.forEach(v => {
-        const imgDiv =
-        `<div class="${groupClass}">
-        <div class="${itemClass}" data-id="${v.id}"
-        style="background-image:url('${v.img}');"></div></div>`
-        pos.insertAdjacentHTML("beforeend", imgDiv);
 
-        const preLoad =
-        `<img class="pre--load" src="${v.decodeImg}"/>`
-        pos2.insertAdjacentHTML("beforeend", preLoad);
+// 이미지 생성
+function imgListUp(role, arr, pos) {
+    arr.forEach((v,i) => {
+        const imgDiv =
+        `<div class="edu-pics">
+        <div class="edu-pic" data-role="${role}" data-index="${i}"
+        style="background-image:url('${v}');"></div></div>`
+        pos.insertAdjacentHTML("beforeend", imgDiv);
     });
 }
+// 캐시 이미지 생성
+function imgPreLoad(arr, pos){
+    arr.forEach((v,i) => {
+        const preLoad =
+        `<img class="edu-pics" src="${arr[i]}"/>`
+        pos.insertAdjacentHTML("beforeend", preLoad);
+    });
+}
+
 // 버튼 생성
 function createBtn(arr, pos, className) {
     arr.forEach(v => {
         const btnDiv =
-        `<button class="fonF ${className} ${v.color}"
+        `<button class="${className} ${v.color}"
         data-id="${v.id}" data-part="${v.part}">
         ${v.name}</button>`;
         pos.insertAdjacentHTML("beforeend", btnDiv);
@@ -245,7 +281,6 @@ function cameraStart(pos){
         .then(function(stream){
             track = stream.getTracks()[0];
             pos.srcObject = stream;
-
         })
         .catch(function(error){
             console.log(error.name+":"+error.message);
