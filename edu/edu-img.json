@@ -3,49 +3,18 @@ edu = [
         "part": "스탠더드 구성",
         "id": 100001,
         "role": 0,
-        "name": "전시훈",
-        "img": "edu/standard-01-0.png",
-        "decodeImg": "edu/standard-01-1.png"
-    },
-    {
-        "part": "스탠더드 구성",
-        "id": 100002,
-        "role": 0,
-        "name": "손현지",
-        "img": "edu/standard-02-0.png",
-        "decodeImg": "edu/standard-02-1.png"
-    },
-    {
-        "part": "스탠더드 구성",
-        "id": 100003,
-        "role": 0,
-        "name": "김기예",
-        "img": "edu/standard-03-0.png",
-        "decodeImg": "edu/standard-03-1.png"
-    },
-    {
-        "part": "스탠더드 구성",
-        "id": 100004,
-        "role": 0,
-        "name": "전재연",
-        "img": "edu/standard-04-0.png",
-        "decodeImg": "edu/standard-04-1.png"
-    },
-    {
-        "part": "스탠더드 구성",
-        "id": 100005,
-        "role": 1,
-        "name": "이종수",
-        "img": "edu/standard-b-01-0.png",
-        "decodeImg": "edu/standard-b-01-1.png"
-    },
-    {
-        "part": "스탠더드 구성",
-        "id": 100006,
-        "role": 1,
-        "name": "이종수",
-        "img": "edu/standard-b-02-0.png",
-        "decodeImg": "edu/standard-b-02-1.png"
+        "name": ["전시훈","손현지","김기예","전재연"],
+        "img": [
+            "edu/standard-01-0.png",
+            "edu/standard-02-0.png",
+            "edu/standard-03-0.png",
+            "edu/standard-04-0.png",],
+        "decodeImg": [
+            "edu/standard-01-1.png",
+            "edu/standard-02-1.png",
+            "edu/standard-03-1.png",
+            "edu/standard-04-1.png",
+        ]
     },
     {
         "part": "스탠더드 구성",
@@ -148,7 +117,14 @@ edu = [
         "color" : "comp-distant",
         "explain": "주제 주변의 여백을 쉽게 채울 수 있도록 평면 형태로 표현합니다. ",
         "img": "edu/comp-distant-0.png",
-        "decodeImg": []
+        "decodeImg": [
+            "edu/comp-distant-1.png",
+            "edu/comp-distant-2.png",
+            "edu/comp-distant-3.png",
+            "edu/comp-distant-4.png",
+            "edu/comp-distant-5.png",
+            "edu/comp-distant-6.png"
+        ]
     },
     {
         "part": "스탠더드 구성",
@@ -162,14 +138,6 @@ edu = [
     },
     {
         "part": "스탠더드 구성",
-        "id": 1000015,
-        "role": 3,
-        "name": "전체 구성",
-        "img": "edu/comp-standard.png",
-        "decodeImg": "edu/comp-standard-1.png"
-    },
-    {
-        "part": "스탠더드 구성",
         "id": 1000016,
         "role": 2,
         "name": "밸런스",
@@ -179,23 +147,54 @@ edu = [
         "decodeImg": []
     },
     {
-        "part": "주제 연출",
-        "id": 1000017,
-        "role": 4,
-        "name": "조형성",
-        "themeNum" : 0,
-        "explain": "기능이 약하거나, 소재 간의 힘(무게) 차이가 뚜렷하지 않을 경우 조형성에 포커스를 맞춰 주제를 연출합니다.",
-        "img": "edu/balance.png",
-        "decodeImg": []
+        "part": "스탠더드 구성",
+        "id": 1000015,
+        "role": 3,
+        "name": "전체 구성",
+        "img": "edu/comp-standard.png",
+        "decodeImg": "edu/comp-standard-1.png"
     },
     {
         "part": "주제 연출",
         "id": 1000017,
         "role": 4,
+        "name": "조형성",
+        "themeNum" : 0,
+        "define" : "형태와 방향, 간격의 확장",
+        "defineImg" : "svg/formative.svg",
+        "explain": "기능이 약하거나 소재 간의 힘(무게) 차이가 뚜렷하지 않을 경우, 조형성에 포커스를 맞춰 주제를 연출합니다.",
+        "img": [
+            "edu/formative-01-0.png",
+            "edu/formative-02-0.png", 
+            "edu/formative-03-0.png",
+            "edu/formative-04-0.png"
+        ],
+        "decodeImg": [
+            "edu/formative-01-1.png",
+            "edu/formative-02-1.png", 
+            "edu/formative-03-1.png",
+            "edu/formative-04-0.png"
+        ]
+    },
+    {
+        "part": "주제 연출",
+        "id": 1000018,
+        "role": 4,
         "name": "상호작용",
+        "define" : "힘에 의한 작용과 반작용",
+        "defineImg" : "svg/reactive.svg",
         "themeNum" : 1,
-        "explain": "물체의 기능을 활용하거나, 사물 간의 힘의 차이를 이용한 연출 방법입니다.",
-        "img": "edu/balance.png",
-        "decodeImg": []
-    }
+        "explain": "물체의 기능을 활용하거나 사물 간의 힘의 차이를 이용한 연출 방법입니다.",
+        "img": [
+            "edu/reactive-01-0.png",
+            "edu/reactive-02-0.png",
+            "edu/reactive-03-0.png",
+            "edu/reactive-04-0.png"],
+        "decodeImg": [
+            "edu/reactive-01-0.png",
+            "edu/reactive-02-0.png",
+            "edu/reactive-03-0.png",
+            "edu/reactive-04-0.png"
+        ]
+    },
 ]
