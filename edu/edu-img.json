@@ -179,7 +179,7 @@ edu = [
     {
         "part": "주제 연출",
         "id": 1000018,
-        "role": 4,
+        "role": 5,
         "name": "상호작용",
         "define" : "힘에 의한 작용과 반작용",
         "defineImg" : "svg/reactive.svg",
