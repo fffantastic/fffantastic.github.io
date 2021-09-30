@@ -103,11 +103,13 @@ subTitle.addEventListener("click", (e) =>{
 
 // 주제연출 내용 생성
 function constentDirection(sel, themeNum, data){
+    let roleNum = 4;
     // 선택한 탭의 클래스명 토글
     if (themeNum == 0){
         sel.classList.toggle("tab-s")
     }else if(themeNum == 1){
         sel.classList.toggle("tab-s")
+        roleNum = 5;
     }
     // 탭변경시 기존 내용 지우기
     deleteTags(".directions");
@@ -126,8 +128,8 @@ function constentDirection(sel, themeNum, data){
     container.insertAdjacentHTML("afterbegin", contentsDiv);
 
     // 이미지
-    const comp = edu.filter(d => d.themeNum == themeNum && d.role == 4);
-    imgListUp(4, comp[0].img, imgs);
+    const comp = edu.filter(d => d.themeNum == themeNum && d.role == roleNum);
+    imgListUp(roleNum, comp[0].img, imgs);
     imgPreLoad(comp[0].decodeImg, imgCache)
 }
 
