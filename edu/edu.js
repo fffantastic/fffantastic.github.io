@@ -118,7 +118,7 @@ function constentDirection(sel, themeNum, data){
     // 설명
     contentsDiv =
     `<div class="directions"> 
-    <img style="width:250px;" src="${data.defineImg}"/>
+    <img style="width:60%;" src="${data.defineImg}"/>
     <br>|<br>
     <span class ="tag fontH font16">${data.define}</span>
     <br>
