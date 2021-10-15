@@ -6,9 +6,20 @@
   src: url("font/NanumSquareOTFLight.otf");
   font-family: NanumSquareOTF;
 }
+@media screen and (min-width: 769px) {
+  section{
+    width: 60%;
+    margin: auto;
+  }
+}
+
+
+section{
+  margin-top: 20px;
+}
 body{
   margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: nanumSquareOTF, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -18,7 +29,7 @@ body{
 div {
   box-sizing: border-box;
 }
-button{
+button, input{
   all: unset;
 }
 .modalBack{  
@@ -171,7 +182,7 @@ hr{
 .camera-close{
   color: #fff;
   font-size: 60px;
-  position: fixed;
+  position: fixed;x
   cursor: pointer;
   z-index: 18;
 }
@@ -262,7 +273,7 @@ hr{
 .fixed{
   width: 400px;
   position: fixed;
-  bottom: 10%;
+  bottom: 3%;
 }
 .deselect{
   background-color: #afafaf;
@@ -452,7 +463,7 @@ hr{
 }
 .entrance{
   width: 100%;
-  height: 700px;
+  height: 100vh;
   background-image: url(cover10.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -484,7 +495,7 @@ hr{
   width: 91%;
   padding-top: 122%;
   top: 100px;
-  background-image: url(comp-standard10.png);
+  background-image: url(img/edu/comp-standard11.png);
   filter: saturate(80%);
   background-size: cover;
   background-repeat: no-repeat;
@@ -513,15 +524,76 @@ hr{
   z-index: 15;
   mix-blend-mode: multiply;
 }
-.fontN{
-  font-family: NanumSquareOTF;
-}
 .fontH{
   font-family: BM HANNA Air OTF;
 }
-.font16{
+.font_14{
+  font-size: 14px;
+}
+.font_16{
   font-size: 16px;
 }
-.textM{
+.font_18{
+  font-size: 18px;
+}
+.font_20{
+  font-size: 20px;
+}
+.font_25{
+  font-size: 24px;
+}
+
+.paddingHor{
   padding: 0px 20px;
+}
+.paddingHR_40{
+  padding: 0px 40px;
+}
+
+.dpNone{
+  display: none;
+}
+.title{
+  padding: 40px 0px;
+}
+.roundRegDS{
+  font-size: 18px;
+  line-height: normal;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.3);
+  padding: 4px 10px;
+  margin: 2px 2px;
+  border-radius: 8px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.roundRegS{
+  color: #FFFFFF;
+  background-color: #000;
+}
+.descBox{
+  margin-top: 10px;
+  box-shadow: inset 0px 5px 5px rgb(243, 243, 243);
+}
+.roundBtnSmall{
+  background: #fff;
+  border: solid 1px #b9b9b9;
+  color: #9e9e9e;
+  margin: 3px;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.btnBlue{
+  background: #2a5caa;
+  border: none;
+  color: #ffffff;
+}
+.navBar{
+  width: 100%;
+  padding: 10px;
+  top: 0px;
+  align-content: center;
+  box-shadow: 0px 5px 5px rgba(95, 95, 95, 0.1);
+  background-color: #fff;
+  position: fixed;
 }
