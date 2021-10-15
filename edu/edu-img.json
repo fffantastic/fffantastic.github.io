@@ -138,6 +138,14 @@ edu = [
     },
     {
         "part": "스탠더드 구성",
+        "id": 1000015,
+        "role": 3,
+        "name": "전체 구성",
+        "img": "edu/comp-standard.png",
+        "decodeImg": "edu/comp-standard-1.png"
+    },
+    {
+        "part": "스탠더드 구성",
         "id": 1000016,
         "role": 2,
         "name": "밸런스",
@@ -147,17 +155,9 @@ edu = [
         "decodeImg": []
     },
     {
-        "part": "스탠더드 구성",
-        "id": 1000015,
-        "role": 3,
-        "name": "전체 구성",
-        "img": "edu/comp-standard.png",
-        "decodeImg": "edu/comp-standard-1.png"
-    },
-    {
         "part": "주제 연출",
         "id": 1000017,
-        "role": 4,
+        "role": 5,
         "name": "조형성",
         "themeNum" : 0,
         "define" : "형태와 방향, 간격의 확장",
@@ -195,6 +195,62 @@ edu = [
             "edu/reactive-02-1.png",
             "edu/reactive-03-1.png",
             "edu/reactive-04-1.png"
+        ]
+    },
+    {
+        "part": "디자인 원리",
+        "id": 1000020,
+        "role": 6,
+        "name": "간격",
+        "define" : "요소간의 거리, 높이 차이",
+        "img": [
+            "edu/d-gap-d-01.png",
+            "edu/d-gap-d-02.png",
+            "edu/d-gap-d-03.png",],
+        "others": ["거리", "사이", "위치", "틈",
+        ]
+    },
+    {
+        "part": "디자인 원리",
+        "id": 1000021,
+        "role": 6,
+        "name": "방향",
+        "define" : "요소를 동적이고 입체적으로 인식하게 하는 것",
+        "img": [
+            "edu/d-slope-l-01.png",
+            "edu/d-slope-l-02.png",
+            "edu/d-slope-l-03.png",],
+        "others": ["기울기", "각도", "수평", "수직", 
+            "대각선", 
+        ]
+    },
+    {
+        "part": "디자인 원리",
+        "id": 1000022,
+        "role": 6,
+        "name": "면적",
+        "define" : "요소가 차지하는 넓이, 요소 간의 크기 차이",
+        "img": [
+            "edu/d-area-p-01.png",
+            "edu/d-area-p-02.png",
+            "edu/d-area-p-03.png",],
+        "others": ["크기", "비례", "부피", "규모",  
+        ]
+    },
+    {
+        "part": "디자인 원리",
+        "id": 1000019,
+        "role": 6,
+        "name": "리듬",
+        "define" : "요소 간의 규칙적이며 반복적인 변화",
+        "img": [
+            "edu/d-rhythm-x-01.png",
+            "edu/d-rhythm-x-02.png",
+            "edu/d-rhythm-x-03.png",
+            "edu/d-rhythm-x-04.png"],
+        "others": ["소리", "점진", "율동",
+            "경쾌함", "운율", "박자",
+            "템포", "음악"
         ]
     },
 ]
