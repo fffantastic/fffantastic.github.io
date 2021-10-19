@@ -33,9 +33,7 @@ imgs.addEventListener("click", (e) => {
 // 셀렉트 박스 선택에 따라 컨텐츠 변경
 parts.addEventListener("change", (e) => {
     let selectedValue = e.target.value;
-    deleteTags(".con-tents");
-    deleteTags(".edu-pics");
-    deleteTags(".sub--ject");
+    deleteTags(".con-tents", ".edu-pics", ".sub--ject");
     body.classList.remove("entrance");
 
     switch (selectedValue) {
@@ -65,12 +63,18 @@ parts.addEventListener("change", (e) => {
 
         case partList[2]:
             const principle = edu.filter(d => d.part == selectedValue);
-            createBtn(principle, subTitle, "sub--ject font_20 roundRegDS");
-            const btns = document.querySelectorAll(".roundRegDS");
+            createBtn(principle, subTitle, "sub--ject font_20 btn-rectangle");
+            const btns = document.querySelectorAll(".btn-rectangle");
 
             contentPrinciple(btns[0], principle[0]);
             break;
-
+        case partList[3]:
+            const reference = edu.filter(d => d.part == selectedValue);
+            createBtn(reference, subTitle, "sub--ject font_25 btn-square");
+            const bottomDiv=
+            `<div class="descBox sub--ject"><br></div>`
+            container.insertAdjacentHTML("beforeend", bottomDiv);
+            break;
         default :
             body.classList.add("entrance");
             break;
@@ -100,8 +104,12 @@ subTitle.addEventListener("click", (e) =>{
                 break;
 
             case partList[2]://사각버튼 누르면 내용 변경
-                deselectAll(".roundRegDS", "roundRegS");
+                deselectAll(".btn-rectangle", "btnSelectBlack");
                 contentPrinciple(selected, filteredContent[0]);
+                break;
+            case partList[3]:
+                body.classList.add("of-hidden");
+                contentReference(filteredContent[0]);
                 break;
         }
     } 
@@ -109,10 +117,9 @@ subTitle.addEventListener("click", (e) =>{
 
 // 디자인원리 내용 생성
 function contentPrinciple(sel, data){
-    deleteTags(".con-tents");
-    deleteTags(".edu-pics");
+    deleteTags(".con-tents", ".edu-pics");
 
-    sel.classList.add("roundRegS");
+    sel.classList.add("btnSelectBlack");
 
     //컨텐츠를 묶을 그룹
     const descBox = document.createElement("div");
@@ -123,7 +130,7 @@ function contentPrinciple(sel, data){
     container.insertAdjacentHTML("afterbegin", contentsDiv);
 
     // arr, pos, class, location
-    createItems(data.others, descBox, "roundBtnSmall btnBlue font_16", "beforeend");
+    createItems(data.others, descBox, "btn-round btnBlue font_16", "beforeend");
     // roll, arr, pos
     imgListUp(data.id, data.img, imgs);
 }
@@ -131,8 +138,7 @@ function contentPrinciple(sel, data){
 
 // 주제연출 내용 생성
 function constentDirection(sel, data){
-    deleteTags(".con-tents");
-    deleteTags(".edu-pics");
+    deleteTags(".con-tents", ".edu-pics");
 
     sel.classList.add("tab-s");
 
@@ -169,7 +175,7 @@ function contentComposition(selected, data){
     <div class="text-head font_18">${data.explain}</div>
 
     <div class="exp-pic-big"
-    style="background-image:url('${data.img}"');"></div>
+    style="background-image:url('${data.img}');"></div>
     </div>`;        
 
     modalBack.classList.toggle("view");
@@ -185,8 +191,39 @@ function contentComposition(selected, data){
         `<img class="exp-pic" src="${d}"/>`;
         more.insertAdjacentHTML("beforeend", imgDiv);
     });
+}
+
+// 조형적 연출
+function contentReference(data){
+    const content = document.createElement("div");
+    content.classList.add("con-tents", "padding-bottom");
+    modal.appendChild(content);
+    const modalDiv =
+    `<div class="con-tents">
+    <span class="modal-close">×</span>
+    <div class="text-head fontH">${data.name}</div>
+    <hr class="whiteHr">
+    </div>`;        
+
+    modalBack.classList.toggle("view");
+    // 모달배경 색채 클래스(배경색) 1개 추가
+    modalBack.classList.add("grey");
+
+    // 모달 주요 내용 출력
+    content.insertAdjacentHTML("afterbegin", modalDiv);
+
+    // 모달 보조 내용 출력
+    data.img.forEach(d => {
+        const imgDiv =
+        `<div class="exp-pic-big"
+        style="background-image:url('${d}');"></div>`;
+        content.insertAdjacentHTML("beforeend", imgDiv);
+    });
 
 }
+
+
+
 camArea.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
@@ -222,9 +259,7 @@ cam.addEventListener("click", (e) => {
 
 // 모달창 닫기
 modalBack.addEventListener("click",() => {
-    deleteTags(".camera--set");
-    deleteTags(".con-tents");
-    deleteTags(".exp-pic");
+    deleteTags(".camera--set", ".con-tents", ".exp-pic", ".exp-pic-big");
     modalBack.classList.toggle("view");
     body.classList.remove("of-hidden");
 });
@@ -278,13 +313,13 @@ function imgPreLoad(arr, pos){
 
 // 버튼 생성
 function createBtn(arr, pos, className) {
-    arr.forEach(v => {
-        const btnDiv =
-        `<button class="${className} ${v.color}"
-        data-id="${v.id}" data-part="${v.part}">
-        ${v.name}</button>`;
-        pos.insertAdjacentHTML("beforeend", btnDiv);
-    });
+arr.forEach(v => {
+const btnDiv =
+`<button class="${className} ${v.color}"
+data-id="${v.id}" data-part="${v.part}">
+${v.name}</button>`;
+pos.insertAdjacentHTML("beforeend", btnDiv);
+});
 }
 // 탭 생성
 function createTab(arr,pos, className) {
@@ -305,7 +340,7 @@ function createItems(arr, pos, className, order) {
     });
 }
 // 데이터 비우기
-function deleteTags(tags) {
+function deleteTags(...tags) {
     let check = document.querySelectorAll(tags)
     if (check) {
         check.forEach(v => v.remove());
@@ -330,3 +365,4 @@ function cameraStart(pos){
             alert("카메라를 사용할 수 없습니다.");
         })
 }
+
