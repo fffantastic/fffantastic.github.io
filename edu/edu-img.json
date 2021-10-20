@@ -257,36 +257,52 @@ edu = [
         "part": "조형적 연출",
         "id": 1000023,
         "role": 7,
-        "name": "선",
+        "name": "형태",
         "img": [
-            "edu/e-line-00.png",
-            "edu/e-line-01.png",
-            "edu/e-line-02.png",
-            "edu/e-line-03.png"
+            "edu/e-form-00.png",
+            "edu/e-form-01.png",
+            "edu/e-form-02.png"
         ]
     },
     {
         "part": "조형적 연출",
         "id": 1000024,
         "role": 7,
-        "name": "중첩",
+        "name": "선",
         "img": [
-            "edu/e-overlap-00.png",
-            "edu/e-overlap-01.png",
-            "edu/e-overlap-02.png",
-            "edu/e-overlap-03.png"
+            "edu/e-line-00.png",
+            "edu/e-line-01.png",
+            "edu/e-line-02.png",
+            "edu/e-line-03.png",
+            "edu/e-line-04.png"
         ]
     },
     {
         "part": "조형적 연출",
         "id": 1000025,
         "role": 7,
+        "name": "중첩",
+        "img": [
+            "edu/e-overlap-00.png",
+            "edu/e-overlap-01.png",
+            "edu/e-overlap-02.png",
+            "edu/e-overlap-03.png",
+            "edu/e-overlap-04.png",
+            "edu/e-overlap-05.png"
+        ]
+    },
+    {
+        "part": "조형적 연출",
+        "id": 1000026,
+        "role": 7,
         "name": "확산",
         "img": [
             "edu/e-difussion-00.png",
             "edu/e-difussion-01.png",
             "edu/e-difussion-02.png",
-            "edu/e-difussion-03.png"
+            "edu/e-difussion-03.png",
+            "edu/e-difussion-04.png",
+            "edu/e-difussion-05.png"
         ]
     }
 ]
