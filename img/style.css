@@ -1,19 +1,7 @@
 
 @font-face {
-  src: url("font/NanumSquareR.otf");
+  src: url("NanumSquareR.otf");
   font-family: NanumSquareR;
-}
-@font-face {
-  src: url("font/NanumSquareOTFLight.otf");
-  font-family: NanumSquareL;
-}
-@font-face {
-  src: url("font/NanumSquareB.otf");
-  font-family: NanumSquareB;
-}
-@font-face {
-  src: url("font/Arita-buriHL.otf");
-  font-family: Arita-buriHL;
 }
 :root {
   --grey10: hsl(0, 0%, 90%);
