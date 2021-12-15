@@ -8,35 +8,41 @@ main();
 
 
 function main(){
-    const selectUnivList= document.querySelector("#select--univ");
-    // 각각의 셀렉트에  옵션 추가
+    const selectUnivList= document.querySelector("#select--univ"),
+        univImgs= document.querySelector("#univ--img"),
+        univContents= univImgs.querySelector(".con--tents");
 
+    // 셀렉트에  옵션 추가
     new HandleCompo(univSkill, "name").addOption(selectUnivList);
     // nav 핸들링
+    console.log(selectUnivList.value);
+    const all = univImgList.filter(d => d.name == selectUnivList.value).reverse(),
+        feat = univSkill.filter(d => d.name == selectUnivList.value);
+    createTag(feat[0].feat, univContents);
+    const imgGroupDiv= document.createElement("div");
+
+    imgGroupDiv.classList.add("box", "flex_20", "contents--img");
+    univContents.appendChild(imgGroupDiv)
+    createUnivImg(all, imgGroupDiv);
+    
 
     // 셀렉스 메뉴 핸들링
     selectUnivList.addEventListener("change", e => {
-        const univImgs= document.querySelector("#univ--img"),
-            univContents= univImgs.querySelector(".con--tents"),
-            univFilter= univImgs.querySelector("#univ--filter");
+        const univFilter= univImgs.querySelector("#univ--filter");
 
         deleteTags(univImgs, ".contents--tag",".contents--img", ".btn-round");
 
-        if (e.target.value !== selectUnivList.options[0].value){
+        const univFeat = univSkill.filter(d => d.name == e.target.value),
+            allImg = univImgList.filter(d => d.name == e.target.value).reverse();
+            
+        createTag(univFeat[0].feat, univContents);
 
-            const mainImg = univImg.filter(d => d.name == e.target.value),
-                univFeat = univSkill.filter(d => d.name == e.target.value),
-                allImg = univImgList.filter(d => d.name == e.target.value).reverse();
+        const imgGroupDiv= document.createElement("div");
+        imgGroupDiv.classList.add("box", "flex_20", "contents--img");
+        univContents.appendChild(imgGroupDiv)
+        createUnivImg(allImg, imgGroupDiv);
 
-            createTag(univFeat[0].feat, univContents);
-
-            const imgGroupDiv= document.createElement("div");
-            imgGroupDiv.classList.add("box", "flex_20", "contents--img");
-            univContents.appendChild(imgGroupDiv)
-            createUnivImg(allImg, imgGroupDiv);
-
-            createBtns(allImg, univFilter, ["year", "time", "depart"]);
-        }
+        createBtns(allImg, univFilter, ["year", "time", "depart"]);
     });
 
 }
