@@ -15,9 +15,9 @@ function main(){
     // 셀렉트에  옵션 추가
     new HandleCompo(univSkill, "name").addOption(selectUnivList);
     // nav 핸들링
-    console.log(selectUnivList.value);
     const all = univImgList.filter(d => d.name == selectUnivList.value).reverse(),
         featData = univSkill.filter(d => d.name == selectUnivList.value);
+    console.log(featData);
     createTag(featData[0].feat, univContents);
     const imgGroupDiv= document.createElement("div");
 
