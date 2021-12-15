@@ -17,8 +17,8 @@ function main(){
     // nav 핸들링
     console.log(selectUnivList.value);
     const all = univImgList.filter(d => d.name == selectUnivList.value).reverse(),
-        feat = univSkill.filter(d => d.name == selectUnivList.value);
-    createTag(feat[0].feat, univContents);
+        featData = univSkill.filter(d => d.name == selectUnivList.value);
+    createTag(featData[0].feat, univContents);
     const imgGroupDiv= document.createElement("div");
 
     imgGroupDiv.classList.add("box", "flex_20", "contents--img");
