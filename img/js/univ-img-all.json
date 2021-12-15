@@ -250,8 +250,8 @@ univImgList = [
     {
         "name": "강남대",
         "time": "수시",
-        "depart": "유니버셜.png",
-        "img": "src/img/all/강남대-2021-수시-유니버셜.png",
+        "depart": "유니버셜",
+        "img": "src/img/all/강남대-2021-수시-유니버셜-3.png",
         "year": "2021",
         "index": 31
     },
